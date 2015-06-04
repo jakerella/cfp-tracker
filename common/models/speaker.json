@@ -1,0 +1,50 @@
+{
+  "name": "Speaker",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mongodb": {
+      "collection": "speakers"
+    }
+  },
+  "protected": [
+    "email"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "string",
+      "required": false
+    },
+    "imgUrl": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "events": {
+      "type": "hasMany",
+      "model": "Event"
+    },
+    "targets": {
+      "type": "referencesMany",
+      "model": "Event",
+      "property": "targets"
+    },
+    "submissions": {
+      "type": "hasMany",
+      "model": "Submission"
+    },
+    "talks": {
+      "type": "hasMany",
+      "model": "Talk"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,29 @@
+{
+  "name": "conference-tracker",
+  "version": "0.1.0",
+  "description": "An app for conference speakers to track events and opportunities.",
+  "license": "MIT",
+  "private": "true",
+  "main": "server/server.js",
+  "scripts": {
+    "pretest": "node_modules/jshint/bin/jshint ."
+  },
+  "dependencies": {
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "debug": "^2.2.0",
+    "errorhandler": "^1.1.1",
+    "loopback": "^2.14.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-datasource-juggler": "^2.19.0",
+    "serve-favicon": "^2.0.1"
+  },
+  "devDependencies": {
+    "loopback-explorer": "^1.1.0",
+    "jshint": "^2.5.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jakerella/conference-tracker"
+  }
+}

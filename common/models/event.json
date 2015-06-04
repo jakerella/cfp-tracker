@@ -1,0 +1,159 @@
+{
+  "name": "Event",
+  "base": "PersistedModel",
+  "strict": true,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mongodb": {
+      "collection": "events"
+    }
+  },
+  "scope": {
+    "order": "startDate",
+    "limit": 20
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": false
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "venue": {
+      "type": "string",
+      "required": false
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "twitter": {
+      "type": "string",
+      "required": false
+    },
+    "month": {
+      "type": "number",
+      "required": true
+    },
+    "nextStartDate": {
+      "type": "date",
+      "required": false
+    },
+    "numDays": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "numTracks": {
+      "type": "number",
+      "required": false
+    },
+    "tags": {
+      "type": [
+        "String"
+      ],
+      "required": false
+    },
+    "cfpStartDate": {
+      "type": "date",
+      "required": false
+    },
+    "cfpEndDate": {
+      "type": "date",
+      "required": false
+    },
+    "reimburseTicket": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "reimburseFlight": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "reimburseHotel": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "stipend": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "attendance": {
+      "type": "number",
+      "required": false
+    },
+    "talkLength": {
+      "type": "number",
+      "required": true,
+      "default": 60
+    },
+    "hasTutorials": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "hasShortTalks": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "notes": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "speaker": {
+      "type": "belongsTo",
+      "model": "Speaker"
+    },
+    "submissions": {
+      "type": "hasMany",
+      "model": "Submission"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    }
+  ],
+  "methods": []
+}
