@@ -1,31 +1,8 @@
 {
-  "name": "Talk",
+  "name": "Tracker",
   "base": "PersistedModel",
   "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
   "properties": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "abstract": {
-      "type": "string",
-      "required": false
-    },
-    "slidesUrl": {
-      "type": "string",
-      "required": false
-    },
-    "videoUrl": {
-      "type": "string",
-      "required": false
-    },
-    "notes": {
-      "type": "string",
-      "required": false
-    },
     "createdOn": {
       "type": "date",
       "required": true,
@@ -37,10 +14,6 @@
     "speaker": {
       "type": "belongsTo",
       "model": "Speaker"
-    },
-    "submissions": {
-      "type": "hasMany",
-      "model": "Submission"
     }
   },
   "acls": [

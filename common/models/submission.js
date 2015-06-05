@@ -3,6 +3,8 @@ var debug = require('debug')('tracker:models:submission');
 
 module.exports = function(Submission) {
     
+    Submission.validatesPresenceOf('talkId');
+    
     Submission.beforeRemote('create', function addSpeaker(ctx, instance, next) {
         var userId = ctx.req.accessToken && ctx.req.accessToken.userId;
         

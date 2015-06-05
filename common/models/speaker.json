@@ -23,6 +23,11 @@
     "imgUrl": {
       "type": "string",
       "required": false
+    },
+    "createdOn": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
     }
   },
   "validations": [],
@@ -31,10 +36,9 @@
       "type": "hasMany",
       "model": "Event"
     },
-    "targets": {
-      "type": "referencesMany",
-      "model": "Event",
-      "property": "targets"
+    "trackers": {
+      "type": "hasMany",
+      "model": "Tracker"
     },
     "submissions": {
       "type": "hasMany",
@@ -45,6 +49,31 @@
       "model": "Talk"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__events"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__submissions"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__talks"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__trackers"
+    }
+  ],
   "methods": []
 }

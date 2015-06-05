@@ -48,5 +48,9 @@
   "Talk": {
     "dataSource": "db",
     "public": true
+  },
+  "Tracker": {
+    "dataSource": "db",
+    "public": true
   }
 }

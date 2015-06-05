@@ -115,6 +115,11 @@
     "notes": {
       "type": "string",
       "required": false
+    },
+    "createdOn": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
     }
   },
   "validations": [],
@@ -126,6 +131,10 @@
     "submissions": {
       "type": "hasMany",
       "model": "Submission"
+    },
+    "trackers": {
+      "type": "hasMany",
+      "model": "Tracker"
     }
   },
   "acls": [
