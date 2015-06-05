@@ -3,7 +3,7 @@ var debug = require('debug')('tracker:models:event');
 
 module.exports = function(Event) {
     
-    Event.beforeRemote('create', function updateTimestamp(ctx, instance, next) {
+    Event.beforeRemote('create', function addSpeaker(ctx, instance, next) {
         var userId = ctx.req.accessToken && ctx.req.accessToken.userId;
         
         if (!userId) {
