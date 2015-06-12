@@ -38,6 +38,10 @@
       "type": "string",
       "required": false
     },
+    "cfpUrl": {
+      "type": "string",
+      "required": false
+    },
     "twitter": {
       "type": "string",
       "required": false
